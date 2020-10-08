@@ -1,0 +1,18 @@
+{%extends 'login.html'%}
+
+{%block title%} home {%endblock%}
+
+{%block content%}
+
+<div class="jumbotron">
+    <h1 class="display-4">welcome</h1>
+    <p class="lead">my name is nanthagopal, here i built django web application.</p>
+    <hr class="my-4">
+    <p>user can register,login and logout this page</p>
+    <a class="btn btn-primary btn-lg" href="{%url 'register'%}" role="button">Register</a>
+
+    <a style="margin-left: 30px;" class="btn btn-primary btn-lg" href="{%url 'login'%}" role="button">Login</a>
+
+  </div>
+
+{%endblock%}
