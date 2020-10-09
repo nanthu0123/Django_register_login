@@ -1,0 +1,40 @@
+1)unzip the django project
+
+2)create viretual environmet by following comment on terminal
+pip3 install virtualenv 
+
+3)create virtualenvironment directory
+virtualenv "name"
+
+4)navigate terminal to virtualenvironment directory root
+
+5)enter the following comment to activate virtualenvironment
+source "name"\script\activate (windows)
+source "name"\bin\activate(linux)
+
+6)install django and mysqlclient
+pip3 install Django==3.1.2
+pip3 install mysqlclient
+
+****[in my case mysqlclient package does not install, so i search for solution in stackoverflow, then i found a solution for it
+install following comment on your terminal
+sudo apt-get install libmysqlclient-dev
+
+then install mysqlclient
+pip3 install mysqlclient]*****
+
+
+7)navigate terminal to django_register_login project then go to settings.py and configure database default properties to connect mysql db
+
+8)go to the mysql workbeanch and create the database for django project
+
+9)to execute the project run the following comment on terminal
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+
+
+
+
+
