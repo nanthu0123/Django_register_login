@@ -74,10 +74,23 @@ WSGI_APPLICATION = 'django_register_login.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+#if mysql db does not connect due to some problem. kindly uncomment the sqlite3 db and run my works
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'DjangoProject',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':'3025',
     }
 }
 
