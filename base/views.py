@@ -10,18 +10,22 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 
 
 def home(request):
+    messages.info(request, '')
     return render(request, 'home.html')
 
 
 def register(request):
-    form = UserRegisterForm
+    form = UserRegisterForm()
+
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
+
         if form.is_valid():
             form.save()
             userName = form.cleaned_data.get('username')
             messages.success(request, f'account created for {userName}')
             return redirect('login')
+
     context = {'form': form}
     return render(request, 'register.html', context)
 
@@ -31,16 +35,18 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
+
         if user is not None:
             auth_login(request, user)
+            messages.info(request, 'logged in successfully')
             return redirect('home')
         else:
             messages.info(request, 'entry does not exist')
 
     return render(request, 'login.html')
 
-def logout(request):
-        auth_logout(request)
-        messages.info(request,'logout successfully')
-        return redirect('login')
 
+def logout(request):
+    auth_logout(request)
+    messages.info(request, 'logout successfully')
+    return redirect('home')
